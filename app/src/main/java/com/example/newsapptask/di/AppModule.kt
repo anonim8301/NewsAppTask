@@ -1,11 +1,8 @@
-package com.example.newsapptask.data.di
+package com.example.newsapptask.di
 
 import android.content.Context
 import androidx.room.Room
 import com.example.newsapptask.data.local.AppDataBase
-import com.example.newsapptask.data.repository.NewsRepositoryImpl
-import com.example.newsapptask.model.repository.NewsRepository
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +12,7 @@ import javax.inject.Singleton
 
 @Module()
 @InstallIn(SingletonComponent::class)
-abstract class AppModule {
+object AppModule {
 
     @Singleton
     @Provides
@@ -30,7 +27,4 @@ abstract class AppModule {
     @Singleton
     @Provides
     fun provideDao(db: AppDataBase) = db.getDao()
-
-    @Binds
-    abstract fun bindNewsRepositoryImpl(repository: NewsRepositoryImpl): NewsRepository
 }
