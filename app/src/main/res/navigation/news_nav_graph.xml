@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_nav_graph.xml"
+    app:startDestination="@id/allNewsFragment">
+
+    <fragment
+        android:id="@+id/savedNewsFragment"
+        android:name="com.example.newsapptask.presentation.fragments.SavedNewsFragment"
+        android:label="fragment_saved_news"
+        tools:layout="@layout/fragment_saved_news" >
+        <action
+            android:id="@+id/action_savedNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allNewsFragment"
+        android:name="com.example.newsapptask.presentation.fragments.AllNewsFragment"
+        android:label="fragment_all_news"
+        tools:layout="@layout/fragment_all_news" >
+        <action
+            android:id="@+id/action_allNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.newsapptask.presentation.fragments.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" />
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.newsapptask.presentation.fragments.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/fragment_article" />
+</navigation>
