@@ -1,4 +1,4 @@
-package com.example.newsapptask.data
+package com.example.newsapptask.model
 
 data class Source(
     val id: Any,

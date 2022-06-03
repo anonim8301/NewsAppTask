@@ -1,6 +1,6 @@
 package com.example.newsapptask.data.remote.api
 
-import com.example.newsapptask.data.NewsResponse
+import com.example.newsapptask.model.NewsResponse
 import com.example.newsapptask.other.Constants.NEWS_API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

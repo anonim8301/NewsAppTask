@@ -1,7 +1,8 @@
-package com.example.newsapptask.data
+package com.example.newsapptask.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.newsapptask.model.Source
 
 @Entity(
     tableName = "articles"
