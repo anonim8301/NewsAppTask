@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.newsapptask.model.Article
 import com.example.newsapptask.data.Converters
+import javax.inject.Inject
 
 @Database(
     entities = [Article::class],
