@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class NewsAppActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityNewsappBinding
-    private val viewModel: NewsViewModel by viewModels()
+    val viewModel: NewsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

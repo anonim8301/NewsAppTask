@@ -18,9 +18,10 @@ class NewsViewModel @Inject constructor(
 
     val topNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var topNewsPage = 1
+    var topNewsResponse: NewsResponse? = null
 
     init {
-        getTopNews("ru")
+        getTopNews("us")
     }
 
     fun getTopNews(countryCode: String) = viewModelScope.launch {
@@ -32,7 +33,15 @@ class NewsViewModel @Inject constructor(
     private fun handleTopNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
         if (response.isSuccessful) {
             response.body()?.let { respondResult ->
-                return Resource.Success(respondResult)
+                topNewsPage++
+                if (topNewsResponse == null) {
+                    topNewsResponse = respondResult
+                } else {
+                    val oldArticles = topNewsResponse?.articles
+                    val newArticles = respondResult.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success(topNewsResponse ?: respondResult)
             }
         }
         return Resource.Error(response.message())
