@@ -44,12 +44,8 @@ class AllNewsFragment : Fragment(R.layout.fragment_all_news) {
 
         // Sometimes getting error: "Attempt to invoke virtual method 'int java.lang.Object.hashCode()' on a null object reference"
         newsAdapter.setOnItemClickListener {
-            val bundle = Bundle().apply {
-                putSerializable("article", it)
-            }
             findNavController().navigate(
-                R.id.action_allNewsFragment_to_articleFragment,
-                bundle
+                AllNewsFragmentDirections.actionAllNewsFragmentToArticleFragment(it)
             )
         }
 
@@ -61,7 +57,7 @@ class AllNewsFragment : Fragment(R.layout.fragment_all_news) {
                         newsAdapter.differ.submitList(newsResponse.articles.toList())
                         val totalPages = newsResponse.totalResults / QUERY_PAGE_SIZE + 2
                         isLastPage = viewModel.topNewsPage == totalPages
-                        if(isLastPage){
+                        if (isLastPage) {
                             binding.rvAllNews.setPadding(0, 0, 0, 0)
                         }
                     }

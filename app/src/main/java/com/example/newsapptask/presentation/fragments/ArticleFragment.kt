@@ -12,12 +12,13 @@ import com.example.newsapptask.R
 import com.example.newsapptask.databinding.FragmentArticleBinding
 import com.example.newsapptask.presentation.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class ArticleFragment : Fragment(R.layout.fragment_article) {
 
     val viewModel: NewsViewModel by viewModels()
-    val args: ArticleFragmentArgs by navArgs()
+    private val args: ArticleFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentArticleBinding
 
@@ -38,6 +39,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
             webViewClient = WebViewClient()
             loadUrl(article.url)
         }
+        Timber.d(article.toString())
     }
 
 }
